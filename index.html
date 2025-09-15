@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Baco Exu do Blues</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(180deg, #0d0d0d, #1a1a1a, #262626);
+      color: #f1f1f1;
+      font-size: 100%;
+    }
+
+    header {
+      background: linear-gradient(90deg, #111, #222, #333);
+      border-bottom: 2px solid #5e17eb;
+    }
+
+    header img {
+      border-radius: 50%;
+      width: 70px;
+      height: 70px;
+      object-fit: cover;
+    }
+
+    .nav-link {
+      color: #f1f1f1 !important;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .nav-link:hover {
+      color: #5e17eb !important;
+      text-shadow: 0 0 8px #5e17eb;
+    }
+
+    /* Seção Início */
+    .inicio-fundo {
+      background: url("img/bacoexudoblues.webp") center/cover no-repeat;
+      border-radius: 15px;
+      padding: 80px;
+      color: white;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+    }
+
+    .botao-inicio {
+      background: linear-gradient(90deg, #5e17eb, #c71585);
+      border: none;
+      transition: 0.3s;
+    }
+
+    .botao-inicio:hover {
+      background: linear-gradient(90deg, #c71585, #5e17eb);
+      transform: scale(1.05);
+    }
+
+    /* Seção História */
+    #baco {
+      background: linear-gradient(120deg, #222, #2a003f, #111);
+      border-radius: 20px;
+      padding: 50px;
+      color: #f8f8f8;
+      box-shadow: 0 0 15px rgba(94, 23, 235, 0.4);
+    }
+
+    #baco h2 {
+      color: #c71585;
+      font-weight: bold;
+    }
+
+    /* Galeria */
+    #galeria {
+      background: #141414;
+      border-radius: 20px;
+      padding: 40px;
+      margin-top: 50px;
+      box-shadow: 0 0 20px rgba(199, 21, 133, 0.3);
+    }
+
+    #galeria img {
+      transition: 0.4s ease;
+      border: 4px solid transparent;
+    }
+
+    #galeria img:hover {
+      transform: scale(1.05);
+      border: 4px solid #5e17eb;
+      box-shadow: 0 0 15px #c71585;
+    }
+
+    /* Formulário */
+    .formulario {
+      background: #1f1f1f;
+      box-shadow: 0 0 15px rgba(94, 23, 235, 0.5);
+      padding: 30px;
+      color: #fff;
+    }
+
+    .form-control {
+      background: #2a2a2a;
+      color: #fff;
+      border: 1px solid #5e17eb;
+    }
+
+    .form-control:focus {
+      border-color: #c715c7;
+      box-shadow: 0 0 10px #c71585;
+    }
+
+    .tamanho-botao {
+      background: linear-gradient(90deg, #5e17eb, #c71585);
+      border: none;
+    }
+
+    .tamanho-botao:hover {
+      background: linear-gradient(90deg, #c71585, #5e17eb);
+    }
+
+    /* Rodapé */
+    footer {
+      background: #0d0d0d;
+      border-top: 2px solid #5e17eb;
+      color: #ccc;
+    }
+
+    footer i {
+      font-size: 1.5rem;
+      margin: 0 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    footer i:hover {
+      color: #c71585;
+      transform: scale(1.2);
+    }
+
+    /* Botão de acessibilidade fixo */
+    #acessibilidadeBtn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: linear-gradient(90deg, #5e17eb, #c71585);
+      color: #fff;
+      border: none;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+      z-index: 9999;
+    }
+
+    /* Menu acessibilidade */
+    #menuAcessibilidade {
+      display: none;
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      background: #1f1f1f;
+      color: #fff;
+      border: 2px solid #5e17eb;
+      z-index: 10000;
+      width: 200px;
+    }
+
+    /* Contraste */
+    .alto-contraste {
+      background: #000 !important;
+      color: #fff !important;
+    }
+
+    .alto-contraste a {
+      color: yellow !important;
+    }
+
+    /* Foco visível */
+    :focus {
+      outline: 3px solid #c71585;
+      outline-offset: 3px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Botão de acessibilidade -->
+  <button id="acessibilidadeBtn" class="btn btn-lg rounded-circle"
+    aria-label="Abrir menu de acessibilidade" tabindex="0">♿</button>
+
+  <!-- Menu de acessibilidade -->
+  <div id="menuAcessibilidade" class="p-3 rounded" role="menu" aria-hidden="true">
+    <h5 class="mb-3">Acessibilidade</h5>
+    <button class="btn btn-sm btn-light w-100 mb-2" onclick="aumentarFonte()" tabindex="0"
+      aria-label="Aumentar o tamanho da fonte">Aumentar Fonte</button>
+    <button class="btn btn-sm btn-light w-100 mb-2" onclick="diminuirFonte()" tabindex="0"
+      aria-label="Diminuir o tamanho da fonte">Diminuir Fonte</button>
+    <button class="btn btn-sm btn-light w-100 mb-2" onclick="alternarContraste()" tabindex="0"
+      aria-label="Ativar ou desativar alto contraste">Alto Contraste</button>
+  </div>
+
+  <header class="p-3">
+    <nav class="container d-flex justify-content-between align-items-center">
+      <img src="img/images.jfif" alt="Logotipo do Baco Exu do Blues" loading="lazy">
+      <ul class="nav">
+        <li class="nav-item"><a class="nav-link" href="#inicio">Início</a></li>
+        <li class="nav-item"><a class="nav-link" href="#baco">História</a></li>
+        <li class="nav-item"><a class="nav-link" href="#galeria">Galeria</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container my-5">
+    <section id="inicio" class="my-5">
+      <div class="inicio-fundo d-flex flex-column align-items-start">
+        <h1 class="display-4 fst-italic fw-bold">Bem-vindos ao universo de<br><span style="color:#c71585">Baco Exu do
+            Blues</span></h1>
+        <a href="#baco" class="btn btn-lg botao-inicio fw-semibold mt-4">Quero conhecer!</a>
+      </div>
+    </section>
+
+    <section tabindex="0" id="baco" class="my-5">
+      <h2>A história de Baco Exu do Blues</h2>
+      <p>
+        Baco Exu do Blues é um dos maiores nomes da música brasileira contemporânea. Combinando rap,
+        poesia e referências culturais profundas, suas letras abordam amor, política, ancestralidade e a
+        realidade das periferias. Seu estilo único mistura o peso do rap com a intensidade do blues,
+        tornando-o uma voz marcante na cena atual.
+      </p>
+    </section>
+
+    <section tabindex="0"id="galeria">
+      <h2 class="text-center pb-3">Galeria</h2>
+      <div class="row justify-content-center">
+        <div class="col-md-3 mb-3">
+          <img src="img/images (1).jpg" alt="Baco Exu do Blues pensativo" class="img-fluid rounded-5">
+        </div>
+        <div class="col-md-3 mb-3">
+          <img src="img/80be619-esu-baco-exudo-blues.avif" alt="Baco Exu do Blues em show" class="img-fluid rounded-5">
+        </div>
+        <div class="col-md-3 mb-3">
+          <img src="img/download.jpg" alt="Baco Exu do Blues deitado" class="img-fluid rounded-5">
+        </div>
+        <div class="col-md-3 mb-3">
+          <img src="img/Baco_Exu_do_Blues_(52194422697).jpg" alt="Baco Exu do Blues em close" class="img-fluid rounded-5">
+        </div>
+      </div>
+    </section>
+
+    <section"contato"my-5">
+      <div class="container d-flex justify-content-center">
+        <div class="col-md-8 formulario rounded-4">
+          <h2 class="mb-3">Entre em contato</h2>
+          <form>
+            <div class="mb-3">
+              <label for="nome">Nome</label>
+              <input type="text" id="nome" name="nome" class="form-control mt-1" placeholder="Digite seu nome completo"
+                required>
+            </div>
+            <div class="mb-3">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" class="form-control mt-1" placeholder="Digite seu email"
+                required>
+            </div>
+            <div class="mb-3">
+              <label for="mensagem">Mensagem</label>
+              <textarea id="mensagem" name="mensagem" class="form-control mt-2" rows="4"
+                placeholder="Escreva sua mensagem" required></textarea>
+            </div>
+            <div class="d-grid">
+              <button type="submit" class="btn btn-lg rounded-pill tamanho-botao">Enviar mensagem</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="text-center p-3">
+    <p>Acesse nossas redes:</p>
+    <i class="bi bi-whatsapp"></i>
+    <i class="bi bi-instagram"></i>
+    <i class="bi bi-tiktok"></i>
+    <p class="mt-3">Desenvolvido por Start by Alura. Projeto fictício sem fins comerciais.</p>
+  </footer>
+
+  <script>
+    const botao = document.getElementById('acessibilidadeBtn');
+    const menu = document.getElementById('menuAcessibilidade');
+    let contrasteAtivo = false;
+    let tamanhoFonte = 100;
+
+    // Abrir/fechar menu com clique
+    botao.addEventListener('click', () => {
+      toggleMenu();
+    });
+
+    // Ativar menu também com ENTER ou ESPAÇO
+    botao.addEventListener('keydown', (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        toggleMenu();
+      }
+    });
+
+    // Função abrir/fechar menu
+    function toggleMenu() {
+      const aberto = menu.style.display === 'block';
+      menu.style.display = aberto ? 'none' : 'block';
+      menu.setAttribute("aria-hidden", aberto);
+    }
+
+    // Fechar menu com tecla ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === "Escape") {
+        menu.style.display = "none";
+        menu.setAttribute("aria-hidden", true);
+        botao.focus(); // volta o foco para o botão
+      }
+    });
+
+    function aumentarFonte() {
+      tamanhoFonte += 10;
+      document.body.style.fontSize = tamanhoFonte + "%";
+    }
+    function diminuirFonte() {
+      if (tamanhoFonte > 70) {
+        tamanhoFonte -= 10;
+        document.body.style.fontSize = tamanhoFonte + "%";
+      }
+    }
+    function alternarContraste() {
+      contrasteAtivo = !contrasteAtivo;
+      if (contrasteAtivo) {
+        document.body.classList.add("alto-contraste");
+      } else {
+        document.body.classList.remove("alto-contraste");
+      }
+    }
+  </script>
+</body>
+
+</html>

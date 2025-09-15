@@ -1,0 +1,112 @@
+:root {
+    --vermelho-profundo: #8445e9;
+    --azul-escuro: #1a1b2e;
+    --cinza-chumbo: #0f0f0f;
+}
+
+body {
+    font-size: 1rem;
+    font-family: 'Montserrat';
+    background-color: #ffffff;
+}
+
+header {
+    background-color: var(--cinza-chumbo);
+}
+
+.nav-link {
+    color: var(--vermelho-profundo);
+    font-weight: 600;
+}
+
+.inicio-fundo {
+    background-image: url('img/baco-fundo.jpg'); /* Substitua por uma imagem do Baco */
+    background-size: cover;
+    background-position: center;
+    border-radius: 80px;
+    width: 100%;
+    height: 606px;
+    padding: 40px;
+    margin: 0 auto;
+}
+
+.esquerda-conteudo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.botao-inicio {
+    background-color: var(--vermelho-profundo);
+    border-radius: 30px;
+    border: none;
+    width: 14em;
+    height: 3em;
+    align-content: center;
+    color: #fff;
+}
+
+.display-4 {
+    text-shadow: -5px 5px var(--vermelho-profundo);
+}
+
+/* seção história */
+#baco {
+    position: relative;
+    padding-top: 5rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    background: url('img/fundo-urbano.png') top right no-repeat,
+                url('img/fundo-urbano-2.png') bottom left no-repeat;
+    background-size: 180px 180px;
+}
+
+#baco .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+}
+
+h2 {
+    font-family: 'Lemon', serif;
+    font-size: 2.5em;
+    font-style: normal;
+    color: var(--vermelho-profundo);
+}
+
+#galeria {
+    background-color: #f4f4f4;
+}
+
+.fundo-galeria {
+    background: url('img/fundo-musica.png') bottom right no-repeat;
+    background-size: 180px 180px;
+}
+
+#contato {
+    background-image: url('img/baco-fundo-contato.jpg');
+    background-size: cover;
+    padding: 4rem 0;
+}
+
+.formulario {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    font-weight: bold;
+}
+
+.formulario button {
+    background-color: var(--azul-escuro);
+    border: none;
+    font-weight: bold;
+    color: #fff;
+}
+
+.form-control {
+    background-color: #ececec;
+}
